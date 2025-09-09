@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ayurvedic Design System - Inspired by nature, tradition, and trust */
+
+@layer base {
+  :root {
+    /* Core Ayurvedic Color Palette */
+    --background: 45 20% 97%;
+    --foreground: 30 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 15% 15%;
+
+    /* Primary - Sacred Saffron & Gold */
+    --primary: 45 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 45 90% 65%;
+
+    /* Secondary - Earth Brown */
+    --secondary: 30 35% 85%;
+    --secondary-foreground: 30 50% 25%;
+
+    /* Herb Green Palette */
+    --herb-green: 120 40% 35%;
+    --herb-green-light: 120 35% 45%;
+    --herb-green-dark: 120 45% 25%;
+
+    /* Ayurvedic Accent Colors */
+    --ayur-gold: 45 85% 55%;
+    --ayur-copper: 25 75% 45%;
+    --ayur-sage: 90 25% 55%;
+    --ayur-turmeric: 40 95% 50%;
+
+    --muted: 45 15% 92%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 120 35% 90%;
+    --accent-foreground: 120 45% 25%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 45 25% 88%;
+    --input: 45 25% 88%;
+    --ring: 45 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--ayur-gold)), hsl(var(--primary-glow)));
+    --gradient-herbal: linear-gradient(135deg, hsl(var(--herb-green)), hsl(var(--ayur-sage)));
+    --gradient-earth: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--ayur-turmeric)), hsl(var(--ayur-copper)));
+
+    /* Shadows */
+    --shadow-ayur: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-herb: 0 8px 25px -8px hsl(var(--herb-green) / 0.4);
+    --shadow-soft: 0 4px 20px -4px hsl(30 15% 15% / 0.1);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme with warm earth tones */
+    --background: 30 20% 8%;
+    --foreground: 45 35% 92%;
+
+    --card: 30 25% 12%;
+    --card-foreground: 45 35% 92%;
+
+    --primary: 45 85% 65%;
+    --primary-foreground: 30 20% 8%;
+
+    --herb-green: 120 30% 45%;
+    --herb-green-light: 120 25% 55%;
+    --herb-green-dark: 120 35% 35%;
+
+    --muted: 30 15% 18%;
+    --muted-foreground: 45 20% 65%;
+
+    --accent: 120 25% 20%;
+    --accent-foreground: 120 35% 85%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter'];
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Playfair_Display'];
+  }
+}
+
+@layer components {
+  /* Ayurvedic Component Styles */
+  .hero-pattern {
+    background-image: radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, hsl(var(--herb-green) / 0.08) 0%, transparent 50%);
+  }
+
+  .herb-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6;
+    @apply shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-herb)];
+    @apply transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  .ayur-button {
+    @apply bg-[var(--gradient-primary)] text-primary-foreground font-semibold;
+    @apply px-8 py-4 rounded-2xl shadow-[var(--shadow-ayur)];
+    @apply transition-[var(--transition-bounce)] hover:scale-105 hover:shadow-[var(--shadow-herb)];
+  }
+
+  .herb-button {
+    @apply bg-[var(--gradient-herbal)] text-white font-medium;
+    @apply px-6 py-3 rounded-xl shadow-[var(--shadow-herb)];
+    @apply transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+  }
+
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-herbal {
+    background: var(--gradient-herbal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-herbal {
+    background: var(--gradient-herbal);
+  }
+
+  .bg-gradient-earth {
+    background: var(--gradient-earth);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px hsl(var(--primary) / 0.4); }
+  100% { box-shadow: 0 0 40px hsl(var(--primary) / 0.8); }
+}
+
